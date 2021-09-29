@@ -8,3 +8,19 @@ content-type: application/json
   "name": "Paul Henri",
   "number": "1234"
 }
+
+###
+POST http://localhost:3001/api/persons
+content-type: application/json
+
+{
+  "name": "Michel Vincent"
+}
+
+###
+POST http://localhost:3001/api/persons
+content-type: application/json
+
+{
+  "number": "4321"
+}
