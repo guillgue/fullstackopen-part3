@@ -2,4 +2,4 @@
 code for https://fullstackopen.com/en/part3/
 
 ## Time tracking
-- part3: 5
+- part3: 9
