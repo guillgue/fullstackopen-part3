@@ -1,5 +1,5 @@
 const mongoose = require('mongoose')
-const dotenv = require('dotenv')
+require('dotenv').config()
 
 if (process.argv.length != 2 && process.argv.length != 4) {
   console.log(`Usage : 
@@ -8,9 +8,7 @@ if (process.argv.length != 2 && process.argv.length != 4) {
   process.exit(1)
 }
 
-dotenv.config()
-
-mongoose.connect(process.env.CONNECTION_URL)
+mongoose.connect(process.env.MONGODB_URI)
 
 const personSchema = new mongoose.Schema({
   name: String,
