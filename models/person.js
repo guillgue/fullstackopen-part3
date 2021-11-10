@@ -26,4 +26,13 @@ personSchema.set('toJSON', {
   }
 })
 
+function onExit() {
+  mongoose.connection.close(() => {
+    console.log('Disconnecting mongoose')
+    process.exit(0)
+  })
+}
+
+process.on('SIGINT', onExit)
+
 module.exports = mongoose.model('Person', personSchema)
