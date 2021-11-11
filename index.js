@@ -9,11 +9,12 @@ app.use(cors())
 app.use(express.json())
 app.use(express.static('build'))
 
-morgan.token('body', function (req, res) {
-  if (req.method === 'POST' || req.method === 'PUT') {
-    return JSON.stringify(req.body)
+// eslint-disable-next-line no-unused-vars
+morgan.token('body', function (request, response) {
+  if (request.method === 'POST' || request.method === 'PUT') {
+    return JSON.stringify(request.body)
   } else {
-    return ""
+    return ''
   }
 })
 app.use(morgan(
@@ -50,7 +51,7 @@ app.get('/api/persons/:id', (request, response, next) => {
 
 app.delete('/api/persons/:id', (request, response, next) => {
   Person.findByIdAndRemove(request.params.id)
-    .then(result => {
+    .then(() => {
       response.status(204).end()
     })
     .catch(error => next(error))
