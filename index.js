@@ -10,7 +10,7 @@ app.use(express.json())
 app.use(express.static('build'))
 
 morgan.token('body', function (req, res) {
-  if (req.method === 'POST') {
+  if (req.method === 'POST' || req.method === 'PUT') {
     return JSON.stringify(req.body)
   } else {
     return ""
